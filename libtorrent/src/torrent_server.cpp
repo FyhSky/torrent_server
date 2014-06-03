@@ -133,7 +133,7 @@ void torrent_server::destory_server()
 bool torrent_server::request_handle(const std::string &uri, boost::int64_t &file_size, int &index)
 {
 	// —È÷§uri.
-	boost::filesystem::path path(uri);
+	boost::filesystem::path path(convert_to_native(uri));
 	std::string file_name = path.leaf().string();
 
 	boost::mutex::scoped_lock l(m_mutex);
@@ -174,6 +174,12 @@ bool torrent_server::read_handle(int index, boost::int64_t offset, char *buffer,
 	read_size = ret;
 
 	return true;
+}
+
+std::vector<video_info> torrent_server::video_list()
+{
+	boost::mutex::scoped_lock l(m_mutex);
+	return m_video_infos;
 }
 
 }

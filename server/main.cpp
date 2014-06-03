@@ -129,6 +129,13 @@ int main(int argc, char* argv[])
 		// 创建listen端口.
 		serv.create_server(8889);
 
+		// 输出视频列表.
+		std::vector<video_info> vl = serv.video_list();
+		int index = 0;
+		for (std::vector<video_info>::iterator i = vl.begin(); i != vl.end(); i++)
+			std::cout << "index: " << index++ << ", " << i->file_name << std::endl;
+		std::cout << std::endl;
+
 		// 这里一直处于等待状态, 或做其它事.
 		getchar();
 

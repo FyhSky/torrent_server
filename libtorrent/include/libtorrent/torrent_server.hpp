@@ -94,6 +94,9 @@ public:
 	// 销毁Http服务.
 	void destory_server();
 
+	// 种子中的视频列表.
+	std::vector<video_info> video_list();
+
 protected:
 	bool request_handle(const std::string &uri, boost::int64_t &file_size, int &index);
 	bool read_handle(int index, boost::int64_t offset, char *buffer, int &read_size);
