@@ -92,7 +92,7 @@ namespace http {
 
 		namespace misc_strings {
 
-			const char name_value_separator = ": ";
+			const char name_value_separator[] = ": ";
 			const char crlf[] = "\r\n";
 
 		} // namespace misc_strings
