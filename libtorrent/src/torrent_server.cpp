@@ -169,7 +169,7 @@ bool torrent_server::read_handle(int index, boost::int64_t offset, char *buffer,
 
 	size_type ret = 0;
 
-	finder->read_op->read_data(buffer, offset, read_size, ret);
+	finder->read_op->read_data(buffer, finder->base_offset + offset, read_size, ret);
 	boost::this_thread::sleep(boost::posix_time::millisec(1));
 	read_size = ret;
 
